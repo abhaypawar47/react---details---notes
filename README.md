@@ -1,4 +1,4 @@
- # 📘 React JS - Introduction- day one 
+ # 📘 React JS - Introduction- day 1 Notes
 
 ## 🧠 What is React JS?
 
@@ -361,6 +361,9 @@ Semantic Versioning is a **standard format for versioning** packages:
 | Flexible tooling required     | ✅                    | ❌ (Angular is opinionated) |
 
 ---------------------------------------------------------------------------------------------------------------
+
+
+
 # 📘 React JS - Day 4 Notes  
 ## 🌐 DOM vs Virtual DOM + 🔄 Reconciliation + ⚛️ JSX + 🎨 Styling in React
 
@@ -541,7 +544,114 @@ Add to `public/index.html`:
 | CSS in React       | External, Inline, Modules                    |
 | Bootstrap in React | Use via npm or CDN, apply classes normally   |
 
-_______________________________________________________________________________________________________________
+__________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+# 📘 React JS - Day 5 Notes  
+## 📦 Types of Components + 🧠 Stateless vs Stateful + ✍️ Syntax
+
+---
+
+## 📦 1. Types of Components in React
+
+React allows two main types of components:
+
+### 🔹 1. Functional Components (Stateless or Stateful using Hooks)
+
+- Simple JavaScript functions that return JSX.
+- Lightweight, easy to write.
+- Can use **Hooks** (`useState`, `useEffect`, etc.) for managing state/lifecycle.
+
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+✅ Modern React favors functional components with Hooks.
+
+🔸 2. Class Components (Stateful - ES6 Syntax)
+More traditional, uses class keyword.
+
+Must extend React.Component.
+
+Contains methods like render(), constructor(), componentDidMount().
+
+jsx
+Copy
+Edit
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+⚠️ Class components are less commonly used in new codebases since the introduction of Hooks.
+
+🧠 2. Stateless vs Stateful Components
+Feature	Stateless Component	Stateful Component
+State Management	Does not manage local state	Manages its own state
+Simplicity	Simple, pure function	More complex
+Hooks Support	Yes (via useState)	Built-in in class components
+Reusability	Highly reusable	Less reusable
+Performance	Slightly better (lightweight)	Slightly heavier due to state logic
+Example	Presentational UI only	Handles logic + UI
+
+✅ Example: Stateless Functional Component
+jsx
+Copy
+Edit
+function Greet(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+✅ Example: Stateful Functional Component (Using Hook)
+jsx
+Copy
+Edit
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </>
+  );
+}
+✅ Example: Class-Based Stateful Component
+jsx
+Copy
+Edit
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    return (
+      <>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.increment}>Increment</button>
+      </>
+    );
+  }
+}
+✍️ Syntax Comparison: Class vs Functional
+Feature	Class Component	Functional Component (with Hooks)
+Declaration	class MyComponent extends React.Component	function MyComponent()
+State Handling	this.state, this.setState()	useState() Hook
+Lifecycle	componentDidMount(), etc.	useEffect() Hook
+Binding this	Required manually	Not needed
+Simplicity	More code and boilerplate	Cleaner and shorter
+
+✅ Summary Table
+Concept	Key Points
+Types of Components	Functional and Class-based
+Stateless	UI-only, no internal state
+Stateful	Manages internal state (via class or useState)
+Syntax	Functional: preferred in modern React apps
+Hooks	Used in functional components to handle state and lifecycle
 
 
 
