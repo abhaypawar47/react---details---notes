@@ -111,6 +111,7 @@ const element = <h1>Hello, world!</h1>;
 * JSX: [https://reactjs.org/docs/introducing-jsx.html](https://reactjs.org/docs/introducing-jsx.html)
 
 ---
+## tools and technology used
 | Category             | Tool Examples                        |
 | -------------------- | ------------------------------------ |
 | Project Setup        | Create React App, Vite               |
