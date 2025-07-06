@@ -554,55 +554,68 @@ ________________________________________________________________________________
 
 React allows two main types of components:
 
+---
+
 ### 🔹 1. Functional Components (Stateless or Stateful using Hooks)
 
-- Simple JavaScript functions that return JSX.
-- Lightweight, easy to write.
-- Can use **Hooks** (`useState`, `useEffect`, etc.) for managing state/lifecycle.
+- Simple JavaScript functions that return JSX
+- Lightweight, easy to write
+- Can use **Hooks** like `useState`, `useEffect` for state/lifecycle
 
 ```jsx
 function Welcome(props) {
   return <h1>Hello, {props.name}</h1>;
 }
-✅ Modern React favors functional components with Hooks.
+````
 
-🔸 2. Class Components (Stateful - ES6 Syntax)
-More traditional, uses class keyword.
+✅ **Modern React favors functional components with Hooks**
 
-Must extend React.Component.
+---
 
-Contains methods like render(), constructor(), componentDidMount().
+### 🔸 2. Class Components (Stateful - ES6 Syntax)
 
-jsx
-Copy
-Edit
+* More traditional way of writing components
+* Uses `class` keyword and extends `React.Component`
+* Must implement `render()` method
+
+```jsx
 class Welcome extends React.Component {
   render() {
     return <h1>Hello, {this.props.name}</h1>;
   }
 }
-⚠️ Class components are less commonly used in new codebases since the introduction of Hooks.
+```
 
-🧠 2. Stateless vs Stateful Components
-Feature	Stateless Component	Stateful Component
-State Management	Does not manage local state	Manages its own state
-Simplicity	Simple, pure function	More complex
-Hooks Support	Yes (via useState)	Built-in in class components
-Reusability	Highly reusable	Less reusable
-Performance	Slightly better (lightweight)	Slightly heavier due to state logic
-Example	Presentational UI only	Handles logic + UI
+⚠️ **Class components are now less common** due to the popularity of Hooks.
 
-✅ Example: Stateless Functional Component
-jsx
-Copy
-Edit
+---
+
+## 🧠 2. Stateless vs Stateful Components
+
+| Feature          | Stateless Component           | Stateful Component          |
+| ---------------- | ----------------------------- | --------------------------- |
+| State Management | ❌ Does not manage local state | ✅ Manages its own state     |
+| Simplicity       | ✅ Simple, pure function       | ❌ More complex              |
+| Hooks Support    | ✅ Yes (with `useState`)       | ✅ Built-in via `this.state` |
+| Reusability      | ✅ Highly reusable             | ❌ Less reusable             |
+| Performance      | ✅ Lightweight                 | ❌ Slightly heavier          |
+| Example Usage    | Presentational UI only        | UI + Logic                  |
+
+---
+
+### ✅ Example: Stateless Functional Component
+
+```jsx
 function Greet(props) {
   return <h1>Hello, {props.name}</h1>;
 }
-✅ Example: Stateful Functional Component (Using Hook)
-jsx
-Copy
-Edit
+```
+
+---
+
+### ✅ Example: Stateful Functional Component (Using Hook)
+
+```jsx
 import { useState } from 'react';
 
 function Counter() {
@@ -614,10 +627,13 @@ function Counter() {
     </>
   );
 }
-✅ Example: Class-Based Stateful Component
-jsx
-Copy
-Edit
+```
+
+---
+
+### ✅ Example: Class-Based Stateful Component
+
+```jsx
 class Counter extends React.Component {
   constructor(props) {
     super(props);
@@ -637,21 +653,30 @@ class Counter extends React.Component {
     );
   }
 }
-✍️ Syntax Comparison: Class vs Functional
-Feature	Class Component	Functional Component (with Hooks)
-Declaration	class MyComponent extends React.Component	function MyComponent()
-State Handling	this.state, this.setState()	useState() Hook
-Lifecycle	componentDidMount(), etc.	useEffect() Hook
-Binding this	Required manually	Not needed
-Simplicity	More code and boilerplate	Cleaner and shorter
+```
 
-✅ Summary Table
-Concept	Key Points
-Types of Components	Functional and Class-based
-Stateless	UI-only, no internal state
-Stateful	Manages internal state (via class or useState)
-Syntax	Functional: preferred in modern React apps
-Hooks	Used in functional components to handle state and lifecycle
+---
 
+## ✍️ Syntax Comparison: Class vs Functional Components
 
+| Feature           | Class Component                             | Functional Component (with Hooks) |
+| ----------------- | ------------------------------------------- | --------------------------------- |
+| Declaration       | `class MyComponent extends React.Component` | `function MyComponent()`          |
+| State Handling    | `this.state`, `this.setState()`             | `useState()`                      |
+| Lifecycle Methods | `componentDidMount()`, etc.                 | `useEffect()`                     |
+| `this` Binding    | Required manually                           | Not needed                        |
+| Simplicity        | More boilerplate                            | Cleaner and shorter               |
 
+---
+
+## ✅ Summary Table
+
+| Concept             | Key Points                                        |
+| ------------------- | ------------------------------------------------- |
+| Types of Components | Functional and Class-based                        |
+| Stateless           | UI-only, no internal state                        |
+| Stateful            | Manages internal state (via class or `useState`)  |
+| Syntax              | Functional: preferred in modern React apps        |
+| Hooks               | Used in functional components for state/lifecycle |
+
+---
