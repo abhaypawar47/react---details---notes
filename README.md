@@ -111,6 +111,20 @@ const element = <h1>Hello, world!</h1>;
 * JSX: [https://reactjs.org/docs/introducing-jsx.html](https://reactjs.org/docs/introducing-jsx.html)
 
 ---
+| Category             | Tool Examples                        |
+| -------------------- | ------------------------------------ |
+| Project Setup        | Create React App, Vite               |
+| Compilation          | Babel, Webpack                       |
+| Component Inspection | React Dev Tools                      |
+| State Management     | Redux, Context API, Zustand          |
+| API Handling         | Axios, React Query, SWR              |
+| Routing              | React Router                         |
+| Testing              | Jest, React Testing Library, Cypress |
+| Deployment           | Vercel, Netlify, GitHub Pages        |
+
+
+
+
 
 ## ✅ Summary
 
