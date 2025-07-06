@@ -850,8 +850,131 @@ class Counter extends React.Component {
 | `this.state`    | Holds the component’s local mutable state   |
 | `this.setState` | Updates state and triggers a re-render      |
 
-______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+# 📘 React JS - Day 7 Notes  
+## 🔄 State + 🎁 Props + 🖱️ Events + 🔍 Function Calling + ⚖️ State vs Props
 
+---
+
+## 🧠 1. Use of `state` in React
+
+- `state` is used to **store and manage component-specific data** that can change over time.
+- When `state` changes, the component **re-renders** with the updated data.
+- State is **local** to the component.
+
+```jsx
+import React, { Component } from 'react';
+
+class Message extends Component {
+  constructor() {
+    super();
+    this.state = {
+      message: "Welcome!"
+    };
+  }
+
+  render() {
+    return <h1>{this.state.message}</h1>;
+  }
+}
+🔄 2. How to Update state
+Use the built-in method this.setState() (in class components).
+
+Never update state directly (e.g., this.state.count++ ❌).
+
+✅ Example: Update State on Button Click
+
+class Counter extends React.Component {
+  constructor() {
+    super();
+    this.state = { count: 0 };
+  }
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  render() {
+    return (
+      <>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.increment}>Increment</button>
+      </>
+    );
+  }
+}
+🎁 3. What are props?
+props (short for properties) are used to pass data from one component to another (usually parent → child).
+
+Props are read-only and immutable inside the child component.
+
+Passed as attributes in JSX.
+
+✅ Example:
+
+function Greet(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+// Usage
+<Greet name="Abhay" />
+🖱️ 4. Handling Events in React
+React handles events similarly to HTML, but with camelCase and using functions instead of strings.
+
+✅ Example:
+
+function MyButton() {
+  function handleClick() {
+    alert('Button Clicked!');
+  }
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+📞 5. Function Calling in React
+Functions can be defined inside a component and called via event handlers.
+
+You can also pass functions as props to child components.
+
+✅ Calling Function on Click:
+
+function Greeting() {
+  const sayHello = () => {
+    alert("Hello from function!");
+  };
+
+  return <button onClick={sayHello}>Say Hello</button>;
+}
+✅ Function as Prop:
+
+function Parent() {
+  const showMessage = () => {
+    alert("Hello from Parent!");
+  };
+
+  return <Child onClickHandler={showMessage} />;
+}
+
+function Child(props) {
+  return <button onClick={props.onClickHandler}>Click Me</button>;
+}
+🔁 6. Difference Between state and props
+Feature	state	props
+Mutability	Mutable (can be updated)	Immutable (read-only)
+Ownership	Owned by the component itself	Passed from parent component
+Purpose	Holds local data	Used to pass data/functions
+Update Method	this.setState() (in class comp)	Cannot be updated directly
+Usage	Controls internal behavior	Controls component rendering via data
+
+✅ Summary
+state: Internal, dynamic data — use this.setState() to update
+
+props: External, read-only data passed from parent to child
+
+Events use camelCase: onClick, onChange, etc.
+
+Functions can be called or passed as props
+
+Always use state for data that changes; use props for configuration
 
 
 
