@@ -851,6 +851,7 @@ class Counter extends React.Component {
 | `this.setState` | Updates state and triggers a re-render      |
 
 _____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
 # 📘 React JS - Day 7 Notes  
 ## 🔄 State + 🎁 Props + 🖱️ Events + 🔍 Function Calling + ⚖️ State vs Props
 
@@ -877,12 +878,19 @@ class Message extends Component {
     return <h1>{this.state.message}</h1>;
   }
 }
-🔄 2. How to Update state
-Use the built-in method this.setState() (in class components).
+````
 
-Never update state directly (e.g., this.state.count++ ❌).
+---
 
-✅ Example: Update State on Button Click
+## 🔄 2. How to Update `state`
+
+* Use the built-in method `this.setState()` (in class components).
+* ❌ Never update state directly like `this.state.count++`.
+
+### ✅ Example: Update State on Button Click
+
+```jsx
+import React from 'react';
 
 class Counter extends React.Component {
   constructor() {
@@ -903,26 +911,39 @@ class Counter extends React.Component {
     );
   }
 }
-🎁 3. What are props?
-props (short for properties) are used to pass data from one component to another (usually parent → child).
+```
 
-Props are read-only and immutable inside the child component.
+---
 
-Passed as attributes in JSX.
+## 🎁 3. What are `props`?
 
-✅ Example:
+* `props` (short for **properties**) are used to **pass data from one component to another** (usually parent → child).
+* Props are **read-only** and **immutable** inside the receiving component.
+* Passed as **attributes** in JSX.
 
+### ✅ Example:
+
+```jsx
 function Greet(props) {
   return <h1>Hello, {props.name}</h1>;
 }
 
 // Usage
 <Greet name="Abhay" />
-🖱️ 4. Handling Events in React
-React handles events similarly to HTML, but with camelCase and using functions instead of strings.
+```
 
-✅ Example:
+---
 
+## 🖱️ 4. Handling Events in React
+
+* React handles events similarly to HTML, but:
+
+  * Uses **camelCase** (`onClick`, `onChange`)
+  * Uses functions instead of strings
+
+### ✅ Example:
+
+```jsx
 function MyButton() {
   function handleClick() {
     alert('Button Clicked!');
@@ -930,13 +951,17 @@ function MyButton() {
 
   return <button onClick={handleClick}>Click Me</button>;
 }
-📞 5. Function Calling in React
-Functions can be defined inside a component and called via event handlers.
+```
 
-You can also pass functions as props to child components.
+---
 
-✅ Calling Function on Click:
+## 📞 5. Function Calling in React
 
+* You can define and call functions **inside components** or **pass them as props** to other components.
+
+### ✅ Calling Function on Click:
+
+```jsx
 function Greeting() {
   const sayHello = () => {
     alert("Hello from function!");
@@ -944,8 +969,13 @@ function Greeting() {
 
   return <button onClick={sayHello}>Say Hello</button>;
 }
-✅ Function as Prop:
+```
 
+---
+
+### ✅ Passing Function as Prop:
+
+```jsx
 function Parent() {
   const showMessage = () => {
     alert("Hello from Parent!");
@@ -957,44 +987,33 @@ function Parent() {
 function Child(props) {
   return <button onClick={props.onClickHandler}>Click Me</button>;
 }
-🔁 6. Difference Between state and props
-Feature	state	props
-Mutability	Mutable (can be updated)	Immutable (read-only)
-Ownership	Owned by the component itself	Passed from parent component
-Purpose	Holds local data	Used to pass data/functions
-Update Method	this.setState() (in class comp)	Cannot be updated directly
-Usage	Controls internal behavior	Controls component rendering via data
+```
 
-✅ Summary
-state: Internal, dynamic data — use this.setState() to update
+---
 
-props: External, read-only data passed from parent to child
+## 🔁 6. Difference Between `state` and `props`
 
-Events use camelCase: onClick, onChange, etc.
+| Feature       | `state`                         | `props`                      |
+| ------------- | ------------------------------- | ---------------------------- |
+| Mutability    | ✅ Mutable (can be updated)      | ❌ Immutable (read-only)      |
+| Ownership     | Component’s own data            | Passed from parent component |
+| Purpose       | Manages local data              | Transfers data and methods   |
+| Update Method | `this.setState()`               | Cannot be updated directly   |
+| Usage         | For internal logic and behavior | For external configuration   |
 
-Functions can be called or passed as props
+---
 
-Always use state for data that changes; use props for configuration
+## ✅ Summary
 
+* `state`: Internal, dynamic data → use `this.setState()` to update.
+* `props`: External, read-only data passed from parent to child.
+* Event names use camelCase like `onClick`, `onChange`, etc.
+* Functions can be **called directly** or **passed as props**.
+* Use:
 
+  * `state` → when the component manages its own data.
+  * `props` → when data needs to be shared or passed down.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
