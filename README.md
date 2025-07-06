@@ -1,4 +1,4 @@
-# 📘 React JS - Introduction- day one 
+ # 📘 React JS - Introduction- day one 
 
 ## 🧠 What is React JS?
 
@@ -270,6 +270,95 @@ git push -u origin main
 * Learned project structure
 * Mastered essential `npm`/`yarn` commands
 * Optionally pushed app to GitHub
+
+---------------------------------------------------------------------------------------------------------------
+
+# 📘 React JS - Day 3 Notes  
+## 📁 Folder Structure + 🔢 Semantic Versioning + ⚔️ Angular vs React
+
+---
+
+## 📁 1. React Project Folder Structure (Create React App)
+
+When you create a project using `npx create-react-app my-app`, you get the following structure:
+
+```
+
+my-app/
+│
+├── public/              # Static files
+│   └── index.html       # Main HTML template
+│
+├── src/                 # Application source code
+│   ├── App.js           # Main App component
+│   ├── App.css          # App-specific styles
+│   ├── index.js         # Entry point to render React App
+│   ├── index.css        # Global styles
+│   └── components/      # Reusable components (You create this folder)
+│
+├── .gitignore           # Git ignored files
+├── package.json         # Project metadata and dependencies
+├── README.md            # Project documentation
+└── node\_modules/        # Installed dependencies (auto-generated)
+
+````
+
+> ✅ You can customize and scale this structure based on project size and team.
+
+---
+
+## 🔢 2. Semantic Versioning (SemVer)
+
+Semantic Versioning is a **standard format for versioning** packages:  
+`MAJOR.MINOR.PATCH` (e.g., `17.0.2`)
+
+| Part   | Meaning                                  |
+|--------|------------------------------------------|
+| MAJOR  | Breaking changes (incompatible API)      |
+| MINOR  | New features (backward compatible)       |
+| PATCH  | Bug fixes (backward compatible)          |
+
+### Example:
+```json
+"dependencies": {
+  "react": "^18.2.0",
+  "react-dom": "~18.2.0"
+}
+````
+
+* `^` (caret): Accepts updates that do not change the first non-zero digit (e.g., `^1.2.3` → `1.x.x`)
+* `~` (tilde): Accepts only patch updates (e.g., `~1.2.3` → `1.2.x`)
+
+---
+
+## ⚔️ 3. Angular vs React - Comparison Table
+
+| Feature           | React JS                          | Angular                          |
+| ----------------- | --------------------------------- | -------------------------------- |
+| Type              | Library (for UI)                  | Full-fledged Framework           |
+| Language          | JavaScript + JSX                  | TypeScript                       |
+| Developed By      | Meta (Facebook)                   | Google                           |
+| Architecture      | Component-Based                   | Component + Module + Service     |
+| DOM Handling      | Virtual DOM                       | Real DOM (with change detection) |
+| Data Binding      | One-way                           | Two-way                          |
+| Learning Curve    | Moderate                          | Steep                            |
+| Performance       | Fast (due to virtual DOM)         | Slightly slower (more overhead)  |
+| Routing           | External library (`react-router`) | Built-in                         |
+| State Management  | Redux, Context API, etc.          | RxJS, Services, NgRx             |
+| Community Support | Huge, flexible                    | Strong, structured               |
+| Use Cases         | SPAs, dashboards, dynamic UIs     | Enterprise-level applications    |
+
+---
+
+## 🧠 4. When to Use React vs Angular?
+
+| Scenario                      | Choose React         | Choose Angular             |
+| ----------------------------- | -------------------- | -------------------------- |
+| Lightweight, fast projects    | ✅                    | ❌                          |
+| Enterprise-scale applications | ✅ (with effort)      | ✅                          |
+| Need complete framework       | ❌ (React is UI only) | ✅                          |
+| Preference for JS + JSX       | ✅                    | ❌ (uses TypeScript)        |
+| Flexible tooling required     | ✅                    | ❌ (Angular is opinionated) |
 
 ---------------------------------------------------------------------------------------------------------------
 
