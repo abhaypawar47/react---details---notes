@@ -680,3 +680,198 @@ class Counter extends React.Component {
 | Hooks               | Used in functional components for state/lifecycle |
 
 ---
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+# 📘 React JS - Day 6 Notes  
+## 🏛️ Class Components in React + State + Constructor + super()
+
+---
+
+## 🧱 1. What are Class Components?
+
+Class Components are one of the two ways to define components in React (the other being functional components).
+
+- Introduced in earlier versions of React (before Hooks).
+- Use ES6 **`class`** syntax.
+- Must **extend** `React.Component`.
+- Provide access to:
+  - **State**
+  - **Lifecycle methods**
+  - **`this.props`**
+
+---
+
+## 📌 2. Syntax of a Basic Class Component
+
+```jsx
+import React from 'react';
+
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+````
+
+> `Welcome` is a class that **extends** `React.Component`.
+> It must define a `render()` method that returns JSX.
+
+---
+
+## 🧠 3. `extends React.Component`
+
+* It inherits methods and properties from React's Component class.
+* Gives access to:
+
+  * `this.props`
+  * `this.state`
+  * Lifecycle methods like:
+
+    * `componentDidMount()`
+    * `componentDidUpdate()`
+    * `componentWillUnmount()`
+
+```jsx
+class MyComponent extends React.Component {
+  // class body
+}
+```
+
+---
+
+## 🔁 4. Understanding `state` in Class Components
+
+* `state` is a built-in object used to store **component-specific dynamic data**.
+* Updating state using `this.setState()` triggers a **re-render** of the component.
+* Unlike `props`, `state` is **mutable** and **private** to the component.
+
+---
+
+## ✍️ 5. Syntax of State (Declaration and Access)
+
+### ✅ Declaring State (Inside Constructor)
+
+```jsx
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+}
+```
+
+---
+
+### ✅ Accessing State
+
+```jsx
+<p>Count: {this.state.count}</p>
+```
+
+---
+
+### ✅ Updating State
+
+```jsx
+this.setState({ count: this.state.count + 1 });
+```
+
+> ⚠️ Never update state directly like `this.state.count++` — it will not trigger re-render.
+
+---
+
+## ⚙️ 6. What is `constructor()`?
+
+* Special method in a class that runs **once** when the component is created.
+* It is used to:
+
+  * Initialize `state`
+  * Bind class methods (if needed)
+
+```jsx
+constructor(props) {
+  super(props);  // Mandatory to access this.props
+  this.state = {
+    message: "Hello"
+  };
+}
+```
+
+---
+
+## 🚀 7. What is `super()`?
+
+* `super(props)` is required inside the constructor of a child class.
+* It calls the **parent class constructor** (`React.Component`) and passes `props` to it.
+* Without `super(props)`, `this.props` will be undefined.
+
+---
+
+## ✅ 8. Full Example: Class Component with State
+
+```jsx
+import React from 'react';
+
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);  // Required to access this.props
+    this.state = {
+      count: 0
+    };
+  }
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.increment}>Increment</button>
+      </div>
+    );
+  }
+}
+```
+
+---
+
+## 🔍 Summary Table
+
+| Concept         | Description                                 |
+| --------------- | ------------------------------------------- |
+| `class`         | Defines a class component                   |
+| `extends`       | Inherits from `React.Component`             |
+| `constructor()` | Initializes state and binds methods         |
+| `super()`       | Calls parent constructor and passes `props` |
+| `this.state`    | Holds the component’s local mutable state   |
+| `this.setState` | Updates state and triggers a re-render      |
+
+______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
