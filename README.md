@@ -13,7 +13,7 @@
 
 ## 🎯 Key Features of React
 
-| Feature            | Description                                                                 |
+| Feature            | Description    .                                                             |
 |--------------------|-----------------------------------------------------------------------------|
 | 🔁 Declarative     | Makes code more predictable and easier to debug                             |
 | 🧩 Component-Based | UI is divided into small, reusable components                               |
