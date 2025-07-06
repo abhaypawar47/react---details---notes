@@ -361,5 +361,187 @@ Semantic Versioning is a **standard format for versioning** packages:
 | Flexible tooling required     | ✅                    | ❌ (Angular is opinionated) |
 
 ---------------------------------------------------------------------------------------------------------------
+# 📘 React JS - Day 4 Notes  
+## 🌐 DOM vs Virtual DOM + 🔄 Reconciliation + ⚛️ JSX + 🎨 Styling in React
+
+---
+
+## 🌳 1. What is the DOM?
+
+- **DOM (Document Object Model)** represents the structure of a webpage as a tree of HTML elements.
+- Every HTML element is a **node** in this tree.
+- JavaScript can manipulate DOM elements to change UI dynamically.
+
+---
+
+## ⚛️ 2. What is Virtual DOM?
+
+- **Virtual DOM** is a **lightweight copy** of the real DOM in memory.
+- React uses it to optimize UI updates.
+
+### 🔄 How It Works:
+
+1. React creates a virtual copy of the real DOM.
+2. When state/props change, a new virtual DOM is created.
+3. React compares (diffs) the new VDOM with the old one.
+4. It updates only the **changed elements** in the real DOM.
+
+✅ This process improves performance significantly.
+
+---
+
+## 🔁 3. Reconciliation Process in React
+
+**Reconciliation** is the process of syncing the virtual DOM with the real DOM.
+
+### Steps:
+
+1. New virtual DOM is generated after state/props change.
+2. React compares the old and new virtual DOMs.
+3. Only the differences (called **diff**) are calculated.
+4. React efficiently updates only the changed DOM nodes.
+
+> Algorithm used: **Diffing Algorithm (O(n))**
+
+---
+
+## ✨ 4. JSX - JavaScript XML
+
+JSX is a syntax extension for JavaScript, allowing HTML-like code inside JS.
+
+```jsx
+const element = <h1>Hello, World!</h1>;
+````
+
+* Transpiled by **Babel** to:
+
+```js
+React.createElement("h1", null, "Hello, World!");
+```
+
+✅ JSX makes UI code cleaner and more readable.
+
+---
+
+## 📌 5. JSX Rules
+
+| Rule                                      | Example / Notes                            |
+| ----------------------------------------- | ------------------------------------------ |
+| JSX must have **one parent element**      | Wrap inside `<div>` or `<> </>` (fragment) |
+| Use **camelCase** for attributes          | `className`, `onClick`, `htmlFor`          |
+| Use `{}` to embed JavaScript expressions  | `<p>{username}</p>`                        |
+| Close all tags                            | `<img src="" />`, `<input />`              |
+| Comments inside JSX use `{/* comment */}` | Example: `{/* This is a comment */}`       |
+
+---
+
+## 🎨 6. How to Apply CSS in React
+
+React supports **three main ways** of styling:
+
+---
+
+### 🔹 A. CSS Stylesheets (External)
+
+Create a `.css` file and import it.
+
+```css
+/* App.css */
+.heading {
+  color: blue;
+}
+```
+
+```jsx
+import './App.css';
+<h1 className="heading">Welcome</h1>
+```
+
+---
+
+### 🔸 B. Inline CSS (JS Style Object)
+
+```jsx
+const headingStyle = {
+  color: 'green',
+  fontSize: '30px',
+};
+
+<h1 style={headingStyle}>Welcome</h1>
+```
+
+✅ Use **camelCase** for properties (e.g., `backgroundColor`)
+
+---
+
+### 🔹 C. CSS Modules (Scoped CSS)
+
+Filename must be `ComponentName.module.css`
+
+```css
+/* App.module.css */
+.title {
+  color: red;
+}
+```
+
+```jsx
+import styles from './App.module.css';
+<h1 className={styles.title}>Scoped Style</h1>
+```
+
+✅ Prevents class name conflicts
+
+---
+
+## 🎯 7. Using Bootstrap in React
+
+### ✅ Option 1: Import Bootstrap via npm
+
+```bash
+npm install bootstrap
+```
+
+In `index.js` or `App.js`:
+
+```jsx
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+Use Bootstrap classes directly:
+
+```jsx
+<button className="btn btn-primary">Click Me</button>
+```
+
+---
+
+### ✅ Option 2: Use CDN (not common in React apps)
+
+Add to `public/index.html`:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+/>
+```
+
+---
+
+## ✅ Summary Table
+
+| Topic              | Key Point                                    |
+| ------------------ | -------------------------------------------- |
+| DOM                | Tree structure of the webpage                |
+| Virtual DOM        | In-memory DOM for performance                |
+| Reconciliation     | Compares VDOM to update real DOM efficiently |
+| JSX                | HTML-like syntax in JavaScript               |
+| JSX Rules          | One parent, camelCase, self-close, `{}`      |
+| CSS in React       | External, Inline, Modules                    |
+| Bootstrap in React | Use via npm or CDN, apply classes normally   |
+
+_______________________________________________________________________________________________________________
+
 
 
