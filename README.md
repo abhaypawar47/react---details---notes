@@ -9,7 +9,7 @@
 - Focuses on the **view layer** of the application (MVC architecture)
 - Allows developers to create **reusable UI components**
 
----
+--------
 
 ## 🎯 Key Features of React
 
