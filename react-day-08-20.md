@@ -5,21 +5,14 @@ Bootstrap can be added to a Vite-powered React app in a few simple steps:
 📌 Step-by-step:
 Install Bootstrap via npm
 
-bash
-Copy
-Edit
 npm install bootstrap
 Import Bootstrap in main.jsx
 
-js
-Copy
-Edit
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 (Optional) If using Bootstrap’s JS components:
 
-js
-Copy
-Edit
+
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 Now you can use Bootstrap classes like btn btn-primary, container, card, etc., in your JSX.
 
