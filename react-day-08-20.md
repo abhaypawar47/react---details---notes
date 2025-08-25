@@ -52,4 +52,4 @@ function NameList() {
 ⚠️ Important:
 Always use key prop with unique value to avoid rendering issues.
 
-map() does not change the original array, it returns a new one.
+map() does not change the original array, it returns a new one.⚜️⚜️
