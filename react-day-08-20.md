@@ -10,7 +10,7 @@ Import Bootstrap in main.jsx
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-(Optional) If using Bootstrap’s JS components:
+(Optional) If using Bootstrap’s JS components:0
 
 
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
